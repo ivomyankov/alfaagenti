@@ -34,16 +34,18 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
+            'user' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|confirmed|min:8',
         ]);
-
+//dd($request->user);
         Auth::login($user = User::create([
             'name' => $request->name,
+            'user' => $request->user,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]));
-
+        
         event(new Registered($user));
 
         return redirect(RouteServiceProvider::HOME);
