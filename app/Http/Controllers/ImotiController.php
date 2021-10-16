@@ -73,7 +73,6 @@ class ImotiController extends Controller
         return view('imoti/prodajba', $this->displayData_changeName($request));
     }
 
-        $data=[
     private function displayData_changeName($request) {
         return [
             'top' => $this->imoti->getTop(),      

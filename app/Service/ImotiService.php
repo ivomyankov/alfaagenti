@@ -54,6 +54,16 @@ class ImotiService
         $stats = compact('active', 'inactive', 'private', 'deleted');
         return $stats;
     }
+
+    public function privateStats2($agent_request){ 
+        // TODO if session agent_id replace $agent_request
+        return (object) [
+            'active' => ImotiModel::getActiveCount($agent_request),
+            'inactive' => ImotiModel::getInactiveCount($agent_request),
+            'private' => ImotiModel::getPrivateCount($agent_request),
+            'deleted' => ImotiModel::getDeletedCount($agent_request)
+        ];
+    }
     
     // final
     public function getPage($page)

@@ -4,7 +4,11 @@ namespace App\Service;
 
 class Badges {
 
-    public function all($userType) {
+    public function forAgent() {
+
+    }
+
+    public function forAdmin() {
 
     }
 }
