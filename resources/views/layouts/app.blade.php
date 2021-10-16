@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="icon" href="https://alfaagenti.com/wp-content/uploads/2019/05/cropped-cropped-aa_t_s-32x32.png" sizes="32x32">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -11,6 +11,9 @@
 
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
+    <script defer src="{{ asset('js/photoswipe/photoswipe.min.js') }}"></script> 
+    <!-- UI JS file -->
+    <script defer src="{{ asset('js/photoswipe/photoswipe-ui-default.min.js') }}"></script> 
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +21,8 @@
 
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <link defer rel="stylesheet" href="{{ asset('css/photoswipe/photoswipe.css') }}"> 
+    <link defer rel="stylesheet" href="{{ asset('css/photoswipe/default-skin/default-skin.css') }}"> 
 </head>
 <body>
     <div id="app">

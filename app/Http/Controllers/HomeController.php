@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Service\ImotiService;
-use Auth;
+//use DisableAuthorization;
+use App\Models\ImotiModel;
 
 class HomeController extends Controller
 {
@@ -13,12 +13,9 @@ class HomeController extends Controller
      *
      * @return void
      */
-    private $imoti;
-
-    public function __construct(ImotiService $imoti )
+    public function __construct()
     {
         //$this->middleware('auth');
-        $this->imoti = $imoti;
     }
 
     /**
@@ -26,44 +23,40 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-
-    public function getImotiFiltar()
-    {  
-        return $this->imoti->getImotiFiltar();
-    }
-
-    public function getImotiHome()
-    {  
-        return $this->getImoti($page = 'home');
-    }
-
-    public function getImotiImoti()
-    {  
-        return $this->getImoti($page = 'imoti');
-    }
-
-    public function getImotiNaem()
-    {  
-        return $this->getImoti($page = 'naem');
-    }
-
-    public function getImotiProdajba()
-    {  
-        return $this->getImoti($page = 'prodajba');
-    }
-    
-     public function getImoti($page)
+    public function test()
     {
-        // Gets this class name only ( no namespace)
-        $class = substr(strrchr(__CLASS__, "\\"), 1);
-        //Pulls data from ImotiService service container
-        $all = $this->imoti->getimoti($class, $page);
-        //dd($all);
-        return view($page, ['imoti' => $all]);
+        $post = ImotiModel::where('id',1)->update(['title'=>'Имот 1a ']);
+        return response()->json($post, 201);
     }
 
-    public function index()
-    {
-        return view('home');
+    public function test1()
+    { //dd('test');
+        $post = ImotiModel::find(1);
+        return response()->json($post, 200);
+        /*return response()->json([
+            'name' => 'Abigail',
+            'state' => 'CA',
+        ]);*/
     }
+
+    public function test2()
+    { //dd('test');
+        $post = ImotiModel::find(1); //dd($post);
+        return response()->json($post, 200);
+    }
+
+    /**
+    * Show the application dashboard.
+    *
+    * @return \Illuminate\Http\Response
+    */
+    public function dashboard()
+    {
+         return view('admin/dashboard');
+    }
+
+
+
+
+
 }

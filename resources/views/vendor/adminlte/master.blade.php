@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="icon" href="https://alfaagenti.com/wp-content/uploads/2019/05/cropped-cropped-aa_t_s-32x32.png" sizes="32x32">
     {{-- Custom Meta Tags --}}
     @yield('meta_tags')
 
@@ -21,6 +21,12 @@
 
     {{-- Custom stylesheets (pre AdminLTE) --}}
     @yield('adminlte_css_pre')
+
+    <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('vendor/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
     {{-- Base Stylesheets --}}
     @if(!config('adminlte.enabled_laravel_mix'))
@@ -88,6 +94,8 @@
         <!-- AdminLTE for demo purposes -->
         <script src="{{ asset('vendor/demo.js') }}"></script>
 
+        
+
         {{-- Configured Scripts --}}
         @include('adminlte::plugins', ['type' => 'js'])
 
@@ -95,6 +103,7 @@
     @else
         <script src="{{ mix(config('adminlte.laravel_mix_js_path', 'js/app.js')) }}"></script>
     @endif
+       
 
     {{-- Livewire Script --}}
     @if(config('adminlte.livewire'))
@@ -104,6 +113,8 @@
             <livewire:scripts />
         @endif
     @endif
+
+    <script src="{{ asset('js/script.js') }}"></script>
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')

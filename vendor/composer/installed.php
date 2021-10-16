@@ -431,6 +431,15 @@
         0 => 'v8.21.0',
       ),
     ),
+    'intervention/image' => 
+    array (
+      'pretty_version' => '2.5.1',
+      'version' => '2.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
+    ),
     'jeroennoten/laravel-adminlte' => 
     array (
       'pretty_version' => 'v3.5.1',

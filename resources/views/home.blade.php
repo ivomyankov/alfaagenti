@@ -1,20 +1,28 @@
 @extends('layouts.app')
 
 @section('content') 
-{{--dd($imoti)--}}
-Total: {{--$imoti->total()--}}
+<h1>Home</h1>
+
     TOP:
-    @foreach ($imoti['top'] as $imot)
-      <p>This is imot ID:{{ $imot['id'] }} {{ $imot['title'] }} {{ $imot['status'] }} {{ $imot['agent_id'] }} </p>
+    @foreach ($top as $imot)
+        @foreach ($imot->images as $image) 
+            {{$image->filename}}
+        @endforeach
+        <p>This is imot ID:{{ $imot['id'] }} {{ $imot['title'] }} {{ $imot['status'] }} {{ $imot['agent_id'] }} </p>
     @endforeach
     
 
-    All:
-    @foreach ($imoti['imoti'] as $imot)
-      <p>This is imot ID:{{ $imot['id'] }} {{ $imot['title'] }} {{ $imot['status'] }} {{ $imot['agent_id'] }} </p>
+    All: {{--dd($imoti)--}}
+    @foreach ($imoti as $imot)  
+        @if (isset($imot->images[0]))
+            {{$imot->images[0]->filename}} 
+        @endif
+
+        
+        <p>This is imot ID:{{ $imot['id'] }} {{ $imot['status'] }} {{ $imot['price'] }} {{ $imot['size'] }} {{ $imot['type'] }}  {{ $imot['agent_id'] }}/{{ $imot->agent->name ?? 'Без агент' }} {{ $imot['area_id'] }}/{{ $imot->area->name ?? 'Без район' }}  </p>
     @endforeach
 
-    {!! $imoti['imoti']->links() !!}
+    Links: {{ $imoti->links() }}
 
 <div class="container">
     <div class="row justify-content-center">

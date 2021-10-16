@@ -51,19 +51,28 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ URL::route('dash-imoti') }}">
-                        <i class="fas fa-fw fa-home "></i>
-                        <p>Имоти</p>
-                        <span class="badge badge-success right">4</span>
+                    <a class="nav-link" href="{{ URL::route('dashboard') }}">
+                        <i class="fas fa-fw fa-chart-pie "></i>
+                        <p>Табло</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/alfaagenti/public/admin/settings">
-                        <i class="fas fa-fw fa-users "></i>
-                        <p>Агенти</p>
-                        <span class="badge badge-success right">4</span>
+                    <a class="nav-link" href="{{ URL::route('dashImoti') }}">
+                        <i class="fas fa-fw fa-home "></i>
+                        <p>Имоти</p>
+                        <span class="badge bg-purple right" style="right: 45px;">{{$stats['all']}}</span>
+                        <span class="badge bg-primary right">{{$stats['mine']}}</span>
                     </a>
                 </li>
+                @if($stats['agent']->role == 'admin')
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('agenti') }}">
+                        <i class="fas fa-fw fa-users "></i>
+                        <p>Агенти</p>
+                        <span class="badge badge-success right">{{$stats['agents']}}</span>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost/alfaagenti/public/admin/settings">
                         <i class="fas fa-fw fa-user "></i>

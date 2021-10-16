@@ -1,0 +1,23 @@
+.alert .close {
+  text-decoration: none;
+  margin-left: 20px;
+
+}
+
+.reposition {
+  cursor: move;
+}
+
+.img_del {
+  font-weight: 900;
+  position: absolute;
+  font-size: 1.5rem;
+  color: #686868;
+  text-shadow: 0px 1px 4px white;
+  margin: 0px 0px 0 -36px;
+}
+
+#agenti {
+  max-width:1000px;
+  font-size: 1.5rem;
+}

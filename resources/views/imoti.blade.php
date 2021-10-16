@@ -2,20 +2,19 @@
 
 @section('content') 
 <h1>Имоти</h1>
-{{--dd($imoti)--}}
-Total: {{--$imoti->total()--}}
+
     TOP:
-    @foreach ($imoti['top'] as $imot)
+    @foreach ($top as $imot)
       <p>This is imot ID:{{ $imot['id'] }} {{ $imot['title'] }} {{ $imot['status'] }} {{ $imot['agent_id'] }} </p>
     @endforeach
     
 
-    All:
-    @foreach ($imoti['imoti'] as $imot)
-      <p>This is imot ID:{{ $imot['id'] }} {{ $imot['title'] }} {{ $imot['status'] }} {{ $imot['agent_id'] }} </p>
+    All: {{$imoti->total()}}
+    @foreach ($imoti as $imot)
+    <p>This is imot ID:{{ $imot['id'] }} {{ $imot['status'] }} {{ $imot['price'] }} {{ $imot['size'] }}  {{ $imot['type'] }} {{ $imot['agent_id'] }}/{{ $imot->agent->name ?? 'Без агент' }} {{ $imot['area_id'] }}/{{ $imot->area->name ?? 'Без район' }}  </p>
     @endforeach
 
-    {!! $imoti['imoti']->links() !!}
+    {!! $imoti->links() !!}
 
 <div class="container">
     <div class="row justify-content-center">

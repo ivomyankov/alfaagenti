@@ -24,7 +24,7 @@ class CreateImotiTable extends Migration
             $table->string('notes')->nullable();
             $table->boolean('top')->default(0);
             $table->string('city')->nullable();
-            $table->tinyInteger('area_id')->nullable();
+            $table->tinyInteger('area_id')->unsigned()->nullable();
             $table->string('type')->nullable();
             $table->integer('price')->unsigned()->nullable();
             $table->integer('size')->unsigned()->nullable();
@@ -34,6 +34,8 @@ class CreateImotiTable extends Migration
             $table->string('view')->nullable();
             $table->string('options')->nullable();
             $table->tinyInteger('agent_id')->nullable();
+            $table->boolean('private')->default(0);
+            $table->boolean('deleted')->default(0);
             $table->timestamps();
         });
 

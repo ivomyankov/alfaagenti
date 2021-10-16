@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/test', 'App\Http\Controllers\HomeController@test');
+
+Route::delete('/test', 'App\Http\Controllers\ImageController@imageDelete');
+
+Route::get('/test1', 'App\Http\Controllers\HomeController@test1');

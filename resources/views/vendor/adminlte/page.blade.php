@@ -18,6 +18,10 @@
 @section('body_data', $layoutHelper->makeBodyData())
 
 @section('body')
+    <!-- Messages -->
+    @include('messages')
+
+
     <div class="wrapper">
 
         {{-- Top Navbar --}}

@@ -3,14 +3,15 @@
     "",
     "\\app",
     "\\app\\Http",
+    "\\app\\Http\\Controllers",
+    "\\app\\Models",
+    "\\app\\Service",
     "\\resources",
     "\\resources\\views",
     "\\resources\\views\\vendor",
     "\\resources\\views\\vendor\\adminlte",
-    "\\resources\\views\\vendor\\adminlte\\partials",
-    "\\resources\\views\\vendor\\adminlte\\partials\\common",
     "\\routes"
   ],
-  "SelectedNode": "\\app\\Http",
+  "SelectedNode": "\\app\\Http\\Controllers\\ImotiController.php",
   "PreviewInSolutionExplorer": false
 }
